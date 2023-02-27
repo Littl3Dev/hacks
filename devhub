@@ -328,7 +328,7 @@ Noclip.MouseButton1Click:Connect(function()
 				Stepped:Disconnect()
 			end
 		end)
-	elseif Status.Text == true then
+	elseif Status == true then
 		Clipon = false
 		Status.Text = false
 		Status.TextColor3 = Color3.new(170,0,0)

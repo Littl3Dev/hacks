@@ -1,0 +1,13 @@
+local SafeSpot = Instance.new("Part", workspace)
+
+SafeSpot.Position = Vector3.new(-1500,100,-1500)
+
+SafeSpot.Name = "Spot"
+
+SafeSpot.Size = Vector3.new(50,50,50)
+
+SafeSpot.Anchored = true
+
+SafeSpot.Transparency = .7
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Spot.CFrame * CFrame.new(0,50,0)

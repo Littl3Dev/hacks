@@ -2,7 +2,7 @@ game.Players.LocalPlayer.Character["Surfboard"].Handle.Handle:Destroy() -- AO Su
 game.Players.LocalPlayer.Character["PogoStick"].Handle.Mesh:Destroy()  --The "Pogo"
 game.Players.LocalPlayer.Character["PlaneModel"].Handle.Mesh:Destroy() --Emirates Mini A380
 game.Players.LocalPlayer.Character["Wings"].Handle.Mesh:Destroy() --Root Dragon Wings
-game.Players.LocalPlayer.Character["Winner's Wings 2.0"].Handle.Mesh:Destroy() --Winner's Wings 2.0
+game.Players.LocalPlayer.Character["Winner's Wings 2.0"].Handle.SpecialMesh:Destroy() --Winner's Wings 2.0
 game.Players.LocalPlayer.Character["TennisBall"].Handle.Mesh:Destroy() -- AO Crazy Ball Head
 game.Players.LocalPlayer.Character["Lipstick_Bag_3.0"].Handle.Mesh:Destroy() -- Le Rouge Cross-body Bag 3.0
 game.Players.LocalPlayer.Character["Lipstick_Bag_1.0"].Handle.Mesh:Destroy() -- Le Rouge Cross-body Bag 1.0

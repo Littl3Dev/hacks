@@ -476,8 +476,8 @@ for i, id in ipairs(ids) do
 		end)
 		newsound.Click.MouseButton1Click:Connect(function()
 			if GUI.Info.Visible ~= true then
-				GUI.Info.TextLabel.Text = "Name: "..audioname.."\n\nID: rbxassetid:"..id
-				selectedaudio = id
+				GUI.Info.TextLabel.Text = "Name: "..audioname.."\n\nID: rbxassetid//"..id
+				selectedaudio = "rbxassetid://"..id
 				GUI.Info.Visible = true
 			end
 		end)

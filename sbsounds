@@ -1,4 +1,4 @@
-aa = game:GetObjects("rbxassetid://14394786790")[1]
+aa = game:GetObjects("rbxassetid://014394786790")[1]
 aa.Parent = game.CoreGui
 wait(0.2)
 GUI = aa.PopupFrame.PopupFrame

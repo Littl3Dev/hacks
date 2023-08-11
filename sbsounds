@@ -1,6 +1,3 @@
--- Made by LittleDev, UI and some of the scripting by EdgeIY
-
-
 aa = game:GetObjects("rbxassetid://14394786790")[1]
 aa.Parent = game.CoreGui
 wait(0.2)

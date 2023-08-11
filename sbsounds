@@ -444,10 +444,7 @@ end)
 for i, id in ipairs(ids) do
 	if id ~= nil then		
 		local newsound = GUI.Audio:Clone()
-		if string.sub(id, 1, 6) == &hash= or string.sub(id, 1, 7) == &0hash= then
-			id = string.sub(id, (string.sub(id, 1, 6) == &hash= and 7) or (string.sub(id, 1, 7) == &0hash= and 8), string.len(id))
-			newsound.ImageButton.Image = 'rbxassetid://1453863294'
-		end
+		newsound.ImageButton.Image = 'rbxassetid://1453863294'
 		newsound.Parent = GUI.Logs
 		newsound.Name = "rbxassetid://"..id
 		newsound.Visible = true

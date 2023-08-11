@@ -6,11 +6,6 @@ aa.Parent = game.CoreGui
 wait(0.2)
 GUI = aa.PopupFrame.PopupFrame
 pos = 0
-placeId = 6403373529
-if game.PlaceId ~= placeId then
-	plr = game.Players.LocalPlayer
-	game:GetService("TeleportService"):Teleport(placeId,plr)
-end
 ids = {
 	9113610838,
 	5799870105,

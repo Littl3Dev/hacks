@@ -553,4 +553,4 @@ function drag(gui)
 		end)
 	end)
 end
-drag(aa.PopupFrame)
+drag(aa)

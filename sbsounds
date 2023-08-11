@@ -445,10 +445,14 @@ for i, id in ipairs(ids) do
 	if id ~= nil then		
 		local newsound = GUI.Audio:Clone()
 		newsound.ImageButton.Image = 'rbxassetid://1453863294'
+                local scrolldown = false
 		newsound.Parent = GUI.Logs
 		newsound.Name = "rbxassetid://"..id
 		newsound.Visible = true
 		newsound.Position = UDim2.new(0,0,0, pos)
+                if GUI.Logs.CanvasPosition.Y == GUI.Logs.CanvasSize.Y.Offset - 230 then
+				scrolldown = true
+			end
 		GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
 		pos = pos+20
 		local function findname()
@@ -460,8 +464,6 @@ for i, id in ipairs(ids) do
 			newsound.TextLabel.Text = Asset.Name
 			audioname = Asset.Name
 		end
-		local data = Instance.new('StringValue') data.Parent = newsound data.Value = "rbxassetid://"..id data.Name = 'ID'
-		local data2 = Instance.new('StringValue') data2.Parent = newsound data2.Value = audioname data2.Name = 'NAME'
 		local soundselected = false
 		newsound.ImageButton.MouseButton1Click:Connect(function()
 			if GUI.Info.Visible ~= true then
@@ -479,6 +481,10 @@ for i, id in ipairs(ids) do
 				GUI.Info.Visible = true
 			end
 		end)
+               --230'
+			if scrolldown == true then
+				GUI.Logs.CanvasPosition = Vector2.new(0, 9999999999999999999999999999999999999999999, 0, 0)
+			end
 	end
 end
 

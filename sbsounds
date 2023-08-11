@@ -1,0 +1,557 @@
+-- Made by LittleDev, UI and some of the scripting by EdgeIY
+
+
+aa = game:GetObjects("rbxassetid://14394786790")[1]
+aa.Parent = game.CoreGui
+wait(0.2)
+GUI = aa.PopupFrame.PopupFrame
+pos = 0
+placeId = 6403373529
+if game.PlaceId ~= placeId then
+	plr = game.Players.LocalPlayer
+	game:GetService("TeleportService"):Teleport(placeId,plr)
+end
+ids = {
+	9113610838,
+	5799870105,
+	198360378,
+	876940487,
+	13344455867,
+	13344563207,
+	13540598587,
+	13540598677,
+	520730051,
+	138097048,
+	1842312348,
+	6324364480,
+	9113201942,
+	9119477732,
+	9112795571,
+	9125640307,
+	9126009571,
+	9125351615,
+	153230666,
+	7198781612,
+	2476654090,
+	10066921516,
+	6648108203,
+	172905796,
+	2042692050,
+	9106904975,
+	9628941084,
+	367453005,
+	2487714799,
+	9118052301,
+	9118771566,
+	11431956420,
+	11431952783,
+	134057288,
+	7948526859,
+	838152983,
+	8080979303,
+	9084006093,
+	1588058260,
+	314970772,
+	4898328740,
+	836142578,
+	180199793,
+	1228230799,
+	9114569607,
+	3802269741,
+	9127061101,
+	8672902702,
+	8388601745,
+	1843468325,
+	8759224723,
+	455238567,
+	613960902,
+	5699659105,
+	5852470908,
+	3067495304,
+	9114276334,
+	5618365929,
+	6487934492,
+	11327967171,
+	9133795425,
+	11712817976,
+	11712821741,
+	11712825935,
+	11712963612,
+	1581713265,
+	13008269666,
+	6075441854,
+	13008341524,
+	13029263617,
+	9113910249,
+	13540598729,
+	1195480469,
+	165970390,
+	13541109051,
+	3923230963,
+	5446226292,
+	965826738,
+	9112795583,
+	9119802379,
+	3246290855,
+	9118895784,
+	9118742416,
+	9118582943,
+	9119512076,
+	9118264887,
+	9118644983,
+	2128641323,
+	5113630674,
+	5203175017,
+	9118500848,
+	9118147709,
+	5213679380,
+	5312369043,
+	9133837518,
+	2648568095,
+	9127403446,
+	8593863862,
+	6086667930,
+	9133844756,
+	858508159,
+	9113880610,
+	9119397209,
+	9120177978,
+	159102623,
+	9125626281,
+	9119834851,
+	9125986205,
+	9041745502,
+	1844758350,
+	9118287444,
+	4591549719,
+	7141318704,
+	6965169740,
+	9133408221,
+	1837779548,
+	2670211312,
+	13691673621,
+	9065813709,
+	357613509,
+	154967038,
+	3475233802,
+	4761049714,
+	174658105,
+	4792670386,
+	8721555368,
+	3742310026,
+	8758209258,
+	3518146972,
+	12421560722,
+	2769872789,
+	6807190812,
+	9133673285,
+	5095684342,
+	3587046205,
+	5257382967,
+	3359047385,
+	877986525,
+	5540424854,
+	202427593,
+	9133682204,
+	9118811602,
+	5745982361,
+	6193836931,
+	933780081,
+	13693759428,
+	9133824052,
+	9067444671,
+	4936708385,
+	11058768310,
+	7625335725,
+	11058958195,
+	11054403993,
+	180163738,
+	9116697667,
+	330595293,
+	1074184175,
+	147722165,
+	3609296008,
+	9057742352,
+	876800936,
+	181004957,
+	7257836407,
+	5220916571,
+	9126073302,
+	1846414903,
+	13176784925,
+	7642880841,
+	9120903221,
+	7755719721,
+	5677173879,
+	9113305107,
+	3183222154,
+	6860710840,
+	6160033368,
+	9133899710,
+	3932669793,
+	4733277496,
+	2707021263,
+	5650647283,
+	9133399582,
+	9133858357,
+	9127529330,
+	9133520457,
+	1838457617,
+	9133787486,
+	9133539469,
+	6001756334,
+	9118612945,
+	3524741725,
+	9119482201,
+	1835322563,
+	2863819269,
+	178038408,
+	8089220692,
+	190478398,
+	9133580044,
+	9127413903,
+	9133869203,
+	9133618135,
+	9133811812,
+	9133686782,
+	9133547891,
+	9126982954,
+	9133649527,
+	9126974203,
+	9126911315,
+	9133474365,
+	9126996687,
+	9133385850,
+	4753228365,
+	6833829503,
+	2687161647,
+	9125760808,
+	5501600429,
+	8490606735,
+	6701126635,
+	744719962,
+	4970514993,
+	9118269317,
+	5948090748,
+	635822826,
+	5351101493,
+	4737106301,
+	5164716070,
+	4288784832,
+	9116264774,
+	2612674531,
+	670599653,
+	315912428,
+	9126742272,
+	9102631645,
+	9116423275,
+	8120249833,
+	334550910,
+	7148330411,
+	3593433467,
+	7854285068,
+	8306999137,
+	6241908330,
+	6821054463,
+	5148302439,
+	9126955965,
+	165969964,
+	9118159665,
+	1355880382,
+	7106331408,
+	13344563078,
+	13344562957,
+	1079408535,
+	13344563329,
+	6556968450,
+	13332660281,
+	6185994631,
+	979751563,
+	8491432432,
+	8699486998,
+	11096540278,
+	8907104314,
+	9126894245,
+	9125640061,
+	9127044632,
+	9127034553,
+	9127017202,
+	12515967206,
+	13071077954,
+	2048662066,
+	4622060212,
+	5862482798,
+	8903544231,
+	14293202026,
+	12222208,
+	14312121139,
+	4612384434,
+	2674547670,
+	1845554017,
+	3704060625,
+	1839997962,
+	130976109,
+	9114688047,
+	9126213741,
+	1146698075,
+	682646779,
+	1347140027,
+	1371567367,
+	1638627089,
+	1371567007,
+	3314301672,
+	747238556,
+	6537598901,
+	9125723940,
+	1842306658,
+	511340819,
+	4806346517,
+	935843979,
+	4958427918,
+	632831227,
+	9113225979,
+	1571353871,
+	9119310655,
+	5104488216,
+	6845179870,
+	6142506403,
+	12876006349,
+	391263180,
+	9125409840,
+	9112889917,
+	9133768844,
+	5356058949,
+	6405267300,
+	9630978444,
+	9113601503,
+	3569647923,
+	9637753535,
+	9628952453,
+	9628106579,
+	1838875947,
+	9120413624,
+	4917012884,
+	537744814,
+	8226406520,
+	515150941,
+	2610939724,
+	9628546324,
+	9509934347,
+	9116603446,
+	9113651645,
+	9116603454,
+	9116604303,
+	7755491383,
+	11228392641,
+	9630074740,
+	9629846478,
+	9039675492,
+	1745235690,
+	891918584,
+	771710038,
+	4612378521,
+	9627807329,
+	9637090350,
+	9125351360,
+	9116427486,
+	9533782140,
+	9630254405,
+	9628727054,
+	1837889876,
+	9119299617,
+	9112775165,
+	11228202559,
+	9630169821,
+	9626100202,
+	335657174,
+	289556450,
+	6420799880,
+	3763437293,
+	1973317014,
+	6125055509,
+	1845309328,
+	5246103002,
+	165796875,
+	224339201,
+	5626752413,
+	9120186419,
+	9120187684,
+	9127407445,
+	7392278582,
+	5801257793,
+	9113517818,
+	421058925,
+	173692184,
+	379557765,
+	9114235566,
+	1210852193,
+	9119814101,
+	11642205799,
+	9067330158,
+	6820466812,
+	12808380261,
+	12808346092,
+	6823153536,
+	8867908563,
+	1841012024,
+	4492087471,
+	1228344855,
+	7067277738,
+}
+
+GUI.Close.MouseButton1Click:connect(function()
+	GUI:TweenSize(UDim2.new(0, 360, 0, 0),Out,Quad,0.5,true) wait(0.6)
+	GUI.Parent:TweenSize(UDim2.new(0, 0, 0, 20),Out,Quad,0.5,true) wait(0.6)
+	aa:Destroy()
+end)
+
+local min = false
+GUI.Minimize.MouseButton1Click:connect(function()
+	if min == false then
+		GUI:TweenSize(UDim2.new(0, 360, 0, 20), Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.5,true) min = true
+	else
+		GUI:TweenSize(UDim2.new(0, 360, 0, 260),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.5,true) min = false
+	end
+end)
+
+function refreshlist()
+	pos = 0
+	GUI.Logs.CanvasSize = UDim2.new(0,0,0,0)
+	for i,v in pairs(GUI.Logs:GetChildren()) do
+		v.Position = UDim2.new(0,0,0, pos)
+		GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
+		pos = pos+20
+	end
+end
+
+function FindTable(Table, Name)
+	for i,v in pairs(Table) do
+		if v == Name then
+			return true
+		end end
+	return false
+end
+
+running = false
+selectedaudio = nil
+
+GUI.Info.Copy.MouseButton1Click:Connect(function()
+	if pcall(function() Synapse:Copy(selectedaudio) end) then	
+	else
+		local clip = setclipboard or Clipboard.set
+		clip(selectedaudio)
+	end
+	game:FindService('StarterGui'):SetCore('SendNotification', {
+		Title = 'SB Sounds',
+		Text = 'Copied to clipboard',
+		Icon = 'http://www.roblox.com/asset/?id=176572847',
+		Duration = 5,
+	})
+end)
+
+for i, id in ipairs(ids) do
+	if id ~= nil then		
+		local newsound = GUI.Audio:Clone()
+		if string.sub(id, 1, 6) == &hash= or string.sub(id, 1, 7) == &0hash= then
+			id = string.sub(id, (string.sub(id, 1, 6) == &hash= and 7) or (string.sub(id, 1, 7) == &0hash= and 8), string.len(id))
+			newsound.ImageButton.Image = 'rbxassetid://1453863294'
+		end
+		newsound.Parent = GUI.Logs
+		newsound.Name = "rbxassetid://"..id
+		newsound.Visible = true
+		newsound.Position = UDim2.new(0,0,0, pos)
+		GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
+		pos = pos+20
+		local function findname()
+			Asset = game:GetService("MarketplaceService"):GetProductInfo(id)
+		end
+		local audioname = 'error'
+		local success, message = pcall(findname)
+		if success then
+			newsound.TextLabel.Text = Asset.Name
+			audioname = Asset.Name
+		end
+		local data = Instance.new('StringValue') data.Parent = newsound data.Value = child.SoundId data.Name = 'ID'
+		local data2 = Instance.new('StringValue') data2.Parent = newsound data2.Value = audioname data2.Name = 'NAME'
+		local soundselected = false
+		newsound.ImageButton.MouseButton1Click:Connect(function()
+			if GUI.Info.Visible ~= true then
+				if soundselected == false then soundselected = true
+					newsound.ImageButton.BackgroundTransparency = 0
+				else soundselected = false
+					newsound.ImageButton.BackgroundTransparency = 1
+				end
+			end
+		end)
+		newsound.Click.MouseButton1Click:Connect(function()
+			if GUI.Info.Visible ~= true then
+				GUI.Info.TextLabel.Text = "Name: "..audioname.."\n\nID: rbxassetid:"..id
+				selectedaudio = id
+				GUI.Info.Visible = true
+			end
+		end)
+	end
+end
+
+GUI.Info.Close.MouseButton1Click:Connect(function()
+	GUI.Info.Visible = false
+	for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+		if sound.Name == 'SampleSound' then
+			sound:Destroy()
+		end
+	end
+	GUI.Info.Listen.Text = 'Listen'
+end)
+
+GUI.Info.Listen.MouseButton1Click:Connect(function()
+	if GUI.Info.Listen.Text == 'Listen' then
+		local samplesound = Instance.new('Sound') samplesound.Parent = game:GetService('Players').LocalPlayer.PlayerGui
+		samplesound.Looped = true samplesound.SoundId = selectedaudio samplesound:Play() samplesound.Name = 'SampleSound'
+		samplesound.Volume = 5
+		GUI.Info.Listen.Text = 'Stop'
+	else
+		for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+			if sound.Name == 'SampleSound' then
+				sound:Destroy()
+			end
+		end
+		GUI.Info.Listen.Text = 'Listen'
+	end
+end)
+
+function drag(gui)
+	spawn(function()
+		local UserInputService = game:GetService(UserInputService)
+		local dragging
+		local dragInput
+		local dragStart
+		local startPos
+		local function update(input)
+			local delta = input.Position - dragStart
+			gui:TweenPosition(UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y), InOut, Quart, 0.04, true, nil) 
+		end
+		gui.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				dragging = true
+				dragStart = input.Position
+				startPos = gui.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragging = false
+					end
+				end)
+			end
+		end)
+		gui.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		UserInputService.InputChanged:Connect(function(input)
+			if input == dragInput and dragging then
+				update(input)
+			end
+		end)
+	end)
+end
+drag(aa.PopupFrame)

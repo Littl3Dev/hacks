@@ -392,8 +392,8 @@ ids = {
 }
 
 GUI.Close.MouseButton1Click:connect(function()
-	GUI:TweenSize(UDim2.new(0, 360, 0, 0),Out,Quad,0.5,true) wait(0.6)
-	GUI.Parent:TweenSize(UDim2.new(0, 0, 0, 20),Out,Quad,0.5,true) wait(0.6)
+	GUI:TweenSize(UDim2.new(0, 360, 0, 0),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.5,true) wait(0.6)
+	GUI.Parent:TweenSize(UDim2.new(0, 0, 0, 20),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.5,true) wait(0.6)
 	aa:Destroy()
 end)
 
@@ -441,18 +441,89 @@ GUI.Info.Copy.MouseButton1Click:Connect(function()
 	})
 end)
 
+GUI.Info.Close.MouseButton1Click:Connect(function()
+	GUI.Info.Visible = false
+	for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+		if sound.Name == 'SampleSound' then
+			sound:Destroy()
+		end
+	end
+	GUI.Info.Listen.Text = 'Listen'
+end)
+
+GUI.Info.Listen.MouseButton1Click:Connect(function()
+	if GUI.Info.Listen.Text == 'Listen' then
+		local samplesound = Instance.new('Sound') 
+		samplesound.Parent = game:GetService('Players').LocalPlayer.PlayerGui
+		samplesound.Looped = true 
+		samplesound.SoundId = selectedaudio 
+		samplesound:Play() 
+		samplesound.Name = 'SampleSound'
+		samplesound.Volume = 5
+		GUI.Info.Listen.Text = 'Stop'
+	else
+		for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+			if sound.Name == 'SampleSound' then
+				sound:Destroy()
+			end
+		end
+		GUI.Info.Listen.Text = 'Listen'
+	end
+end)
+
+function dragify(Frame)
+	local dragToggle = nil
+	local dragSpeed = .25 -- You can edit this.
+	local dragInput = nil
+	local dragStart = nil
+	local dragPos = nil
+
+	local function updateInput(input)
+		local Delta = input.Position - dragStart
+		local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+	end
+
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if (input.UserInputState == Enum.UserInputState.End) then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	Frame.InputChanged:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			dragInput = input
+		end
+	end)
+
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if (input == dragInput and dragToggle) then
+			updateInput(input)
+		end
+	end)
+end
+
+dragify(aa.PopupFrame)
+
 for i, id in ipairs(ids) do
 	if id ~= nil then		
 		local newsound = GUI.Audio:Clone()
 		newsound.ImageButton.Image = 'rbxassetid://1453863294'
-                local scrolldown = false
+		local scrolldown = false
 		newsound.Parent = GUI.Logs
 		newsound.Name = "rbxassetid://"..id
 		newsound.Visible = true
 		newsound.Position = UDim2.new(0,0,0, pos)
-                if GUI.Logs.CanvasPosition.Y == GUI.Logs.CanvasSize.Y.Offset - 230 then
-				scrolldown = true
-			end
+		if GUI.Logs.CanvasPosition.Y == GUI.Logs.CanvasSize.Y.Offset - 230 then
+			scrolldown = true
+		end
 		GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
 		pos = pos+20
 		local function findname()
@@ -481,80 +552,9 @@ for i, id in ipairs(ids) do
 				GUI.Info.Visible = true
 			end
 		end)
-               --230'
-			if scrolldown == true then
-				GUI.Logs.CanvasPosition = Vector2.new(0, 9999999999999999999999999999999999999999999, 0, 0)
-			end
-	end
-end
-
-GUI.Info.Close.MouseButton1Click:Connect(function()
-	GUI.Info.Visible = false
-	for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
-		if sound.Name == 'SampleSound' then
-			sound:Destroy()
+		--230'
+		if scrolldown == true then
+			GUI.Logs.CanvasPosition = Vector2.new(0, 9999999999999999999999999999999999999999999, 0, 0)
 		end
 	end
-	GUI.Info.Listen.Text = 'Listen'
-end)
-
-GUI.Info.Listen.MouseButton1Click:Connect(function()
-	if GUI.Info.Listen.Text == 'Listen' then
-		local samplesound = Instance.new('Sound') 
-                samplesound.Parent = game:GetService('Players').LocalPlayer.PlayerGui
-		samplesound.Looped = true 
-                samplesound.SoundId = selectedaudio 
-                samplesound:Play() 
-                samplesound.Name = 'SampleSound'
-		samplesound.Volume = 5
-		GUI.Info.Listen.Text = 'Stop'
-	else
-		for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
-			if sound.Name == 'SampleSound' then
-				sound:Destroy()
-			end
-		end
-		GUI.Info.Listen.Text = 'Listen'
-	end
-end)
-
-function dragify(Frame)
-dragToggle = nil
-dragSpeed = .25 -- You can edit this.
-dragInput = nil
-dragStart = nil
-dragPos = nil
-
-function updateInput(input)
-Delta = input.Position - dragStart
-Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
-game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
 end
-
-Frame.InputBegan:Connect(function(input)
-if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-dragToggle = true
-dragStart = input.Position
-startPos = Frame.Position
-input.Changed:Connect(function()
-if (input.UserInputState == Enum.UserInputState.End) then
-dragToggle = false
-end
-end)
-end
-end)
-
-Frame.InputChanged:Connect(function(input)
-if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-dragInput = input
-end
-end)
-
-game:GetService("UserInputService").InputChanged:Connect(function(input)
-if (input == dragInput and dragToggle) then
-updateInput(input)
-end
-end)
-end
-
-dragify(aa.PopupFrame)

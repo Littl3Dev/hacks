@@ -388,7 +388,7 @@ ids = {
 	1841012024,
 	4492087471,
 	1228344855,
-	7067277738,
+	7067277738
 }
 
 GUI.Close.MouseButton1Click:connect(function()

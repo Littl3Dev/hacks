@@ -456,7 +456,7 @@ GUI.Info.Listen.MouseButton1Click:Connect(function()
 		local samplesound = Instance.new('Sound') 
 		samplesound.Parent = game:GetService('Players').LocalPlayer.PlayerGui
 		samplesound.Looped = true 
-		samplesound.SoundId = selectedaudio 
+		samplesound.SoundId = "rbxassetid://"..selectedaudio 
 		samplesound:Play() 
 		samplesound.Name = 'SampleSound'
 		samplesound.Volume = 5
@@ -548,7 +548,7 @@ for i, id in ipairs(ids) do
 		newsound.Click.MouseButton1Click:Connect(function()
 			if GUI.Info.Visible ~= true then
 				GUI.Info.TextLabel.Text = "Name: "..audioname.."\n\nID: rbxassetid//"..id
-				selectedaudio = "rbxassetid://"..id
+				selectedaudio = id
 				GUI.Info.Visible = true
 			end
 		end)

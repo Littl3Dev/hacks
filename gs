@@ -5,16 +5,10 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local GUI = OrionLib:MakeWindow({Name = "DevHub🔛🔝", HidePremium = true, IntroText = "DevHub", SaveConfig = false, ConfigFolder = "DevHub"})
 
 GUI:MakeNotification{
-	Name = "Thank you for choosing DevHub, for more information click on the other tab, with FNAF logo.",
-	Callback = function() 
-		game:IsLoaded()
-	end
-}
-GUI:MakeNotification{
-	Name = "Made by LittleDev",
-	Callback = function() 
-		game:IsLoaded()
-	end
+	Name = "DevHub",
+	Content = "Thank you for choosing DevHub.",
+	Image = "rbxassetid://12796195033",
+	Time = 20
 }
 
 local vu = game:GetService("VirtualUser")
@@ -166,12 +160,6 @@ local Bosses = GUI:MakeTab{
 	PremiumOnly = false
 }
 
-local Other = GUI:MakeTab{
-	Name = "Other",
-	Icon = "rbxassetid://9047121552",
-	PremiumOnly = false
-}
-
 --farm
 if game.PlaceId == mainhub then
 	Farm:AddDropdown{
@@ -203,13 +191,14 @@ end
 
 Farm:AddToggle{
 	Name = "AutoFarm",
-	StartingState = false,
-	Description = nil,
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
 		getgenv().autofarm = state
 		GUI:MakeNotification{
-			Name = "Please equip your vacuum in order to work",
+			Name = "Alert",
+			Content = "Please equip your vacuum in order to work",
+			Image = "rbxassetid://7634887655",
+			Time = 5,
 			Callback = function() end
 		}
 		spawn(function()
@@ -222,7 +211,10 @@ Farm:AddToggle{
 
 					elseif ghostN == nil then
 						GUI:MakeNotification{
-							Name = "You have not selected a ghost yet.",
+							Name = "Alert",
+							Content = "You have not selected a ghost yet.",
+							Image = "rbxassetid://7634887655",
+							Time = 5,
 							Callback = function() end
 						}
 						wait(3)
@@ -313,8 +305,6 @@ end
 
 Farm:AddToggle{
 	Name = "Auto hit",
-	StartingState = false,
-	Description = nil,
 	Callback = function(state) 
 		getgenv().autohit = state
 		spawn(function ()
@@ -413,10 +403,6 @@ Bosses:AddToggle{
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
 		getgenv().bossfarm = state
-		GUI:MakeNotification{
-			Name = "If you are not tp'ing then the boss is not spawned yet, or dm me.",
-			Callback = function() end
-		}
 		spawn(function()
 			while bossfarm == true do
 				for i, v in pairs(workspace.Ghosts:GetChildren()) do
@@ -427,7 +413,10 @@ Bosses:AddToggle{
 
 					elseif bossN == nil then
 						GUI:MakeNotification{
-							Name = "You have not selected the boss yet.",
+							Name = "Alert",
+							Content = "You have not selected the boss yet.",
+							Image = "rbxassetid://7634887655",
+							Time = 5
 							Callback = function() end
 						}
 						wait(3)
@@ -444,7 +433,10 @@ Bosses:AddToggle{
 	Callback = function(state) 
 		getgenv().autohitboss = state
 		GUI:MakeNotification{
-			Name = "Use this featuer only with bosses with shield",
+			Name = "Alert",
+			Content = "Use this feature only with bosses with shield.",
+			Image = "rbxassetid://7634887655",
+			Time = 5
 			Callback = function() end
 		}
 		spawn(function ()
@@ -457,4 +449,13 @@ Bosses:AddToggle{
 			end
 		end)
 	end}
+
+
+
+
+
+--MAIN WORLD ----  CFrame.new(211, -148, -1710)  GHOST WORLD ---  CFrame.new(123, -862, 6040)   ---- VOID  CFrame.new(-2, 257, -154)
+local mainhubs = "211, -148, -1710"
+local ghostworlds = "123, -862, 6040"
+local backdoors = "99.1463547, 278.861572, -744.693115, -0.945054948, 1.84763416e-09, -0.326911479, 3.85483538e-08, 1, -1.05786064e-07, 0.326911479, -1.12575549e-07, -0.945054948"
 

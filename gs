@@ -4,7 +4,7 @@ repeat task.wait() until game:IsLoaded()
 local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
 local GUI = OrionLib:MakeWindow({Name = "DevHub🔛🔝", HidePremium = true, IntroText = "DevHub", SaveConfig = false, ConfigFolder = "DevHub"})
 
-GUI:MakeNotification({
+OrionLib:MakeNOtification({
 	Name = "DevHub",
 	Content = "Thank you for choosing DevHub.",
 	Image = "rbxassetid://12796195033",
@@ -18,7 +18,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-GUI:MakeNotification({
+OrionLib:MakeNOtification({
 	Name = "Alert",
 	Content = "Anti-AFK enabled",
 	Image = "rbxassetid://12796195033",
@@ -196,7 +196,7 @@ Farm:AddToggle({
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
 		getgenv().autofarm = state
-		GUI:MakeNotification({
+		OrionLib:MakeNOtification({
 			Name = "Alert",
 			Content = "Please equip your vacuum in order to work",
 			Image = "rbxassetid://7634887655",
@@ -211,7 +211,7 @@ Farm:AddToggle({
 						remote:FireServer(v)
 
 					elseif ghostN == nil then
-						GUI:MakeNotification({
+						OrionLib:MakeNOtification({
 							Name = "Alert",
 							Content = "You have not selected a ghost yet.",
 							Image = "rbxassetid://7634887655",
@@ -412,7 +412,7 @@ Bosses:AddToggle({
 						remote:FireServer(v)
 
 					elseif bossN == nil then
-						GUI:MakeNotification({
+						OrionLib:MakeNOtification({
 							Name = "Alert",
 							Content = "You have not selected the boss yet.",
 							Image = "rbxassetid://7634887655",
@@ -431,7 +431,7 @@ Bosses:AddToggle({
 	Name = "Auto hit boss",
 	Callback = function(state) 
 		getgenv().autohitboss = state
-		GUI:MakeNotification({
+		OrionLib:MakeNOtification({
 			Name = "Alert",
 			Content = "Use this feature only with bosses with shield.",
 			Image = "rbxassetid://7634887655",

@@ -4,7 +4,7 @@ repeat task.wait() until game:IsLoaded()
 local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
 local GUI = OrionLib:MakeWindow({Name = "DevHub🔛🔝", HidePremium = true, IntroText = "DevHub", SaveConfig = false, ConfigFolder = "DevHub"})
 
-OrionLib:MakeNOtification({
+OrionLib:MakeNotification({
 	Name = "DevHub",
 	Content = "Thank you for choosing DevHub.",
 	Image = "rbxassetid://12796195033",
@@ -18,7 +18,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-OrionLib:MakeNOtification({
+OrionLib:MakeNotification({
 	Name = "Alert",
 	Content = "Anti-AFK enabled",
 	Image = "rbxassetid://12796195033",
@@ -195,23 +195,23 @@ Farm:AddToggle({
 	Name = "AutoFarm",
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
-		getgenv().autofarm = state
-		OrionLib:MakeNOtification({
+		_G.autofarm = state
+		OrionLib:MakeNotification({
 			Name = "Alert",
 			Content = "Please equip your vacuum in order to work",
 			Image = "rbxassetid://7634887655",
 			Time = 5
 		})
 		spawn(function()
-			while autofarm == true do
+			while _G.autofarm == true do
 				for i, v in pairs(workspace.Ghosts:GetChildren()) do
-					if v.Name == ghostN and v:FindFirstChild("HumanoidRootPart") and autofarm == true then
+					if v.Name == ghostN and v:FindFirstChild("HumanoidRootPart") and _G.autofarm == true then
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)
 						local remote = game:GetService("ReplicatedStorage").Network.ToServer.Requests.VacuumEnemy
 						remote:FireServer(v)
 
 					elseif ghostN == nil then
-						OrionLib:MakeNOtification({
+						OrionLib:MakeNotification({
 							Name = "Alert",
 							Content = "You have not selected a ghost yet.",
 							Image = "rbxassetid://7634887655",
@@ -231,9 +231,9 @@ if game.PlaceId == mainhub then
 	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
-			getgenv().autosell = state
+			_G.autosell = state
 			spawn(function()
-				while getgenv().autosell == true do
+				while _G.autosell == true do
 					local player = game.Players.LocalPlayer
 					local bLocation
 					function teleport(loc)
@@ -255,9 +255,9 @@ elseif game.PlaceId == ghostworld then
 	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
-			getgenv().autosell = state
+			_G.autosell = state
 			spawn(function()
-				while getgenv().autosell == true do
+				while _G.autosell == true do
 					local player = game.Players.LocalPlayer
 					local bLocation
 					function teleport(loc)
@@ -280,9 +280,9 @@ elseif game.PlaceId == backdoor then
 	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
-			getgenv().autosell = state
+			_G.autosell = state
 			spawn(function()
-				while getgenv().autosell == true do
+				while _G.autosell == true do
 					local player = game.Players.LocalPlayer
 					local bLocation
 					function teleport(loc)
@@ -306,9 +306,9 @@ end
 Farm:AddToggle({
 	Name = "Auto hit",
 	Callback = function(state) 
-		getgenv().autohit = state
+		_G.autohit = state
 		spawn(function ()
-			while autohit == true do
+			while _G.autohit == true do
 				local args = ({
 					[1] = workspace.Ghosts:FindFirstChild(ghostN)
 				})                                    
@@ -321,9 +321,9 @@ Farm:AddToggle({
 Farm:AddToggle({
 	Name = "Auto Antenna upgrade",
 	Callback = function(state) 
-		getgenv().autoantenna = state
+		_G.autoantenna = state
 		spawn(function ()
-			while autoantenna == true do
+			while _G.autoantenna == true do
 				game:GetService("ReplicatedStorage").Network.ToServer.Requests.UpgradeAntenna:FireServer()
 				task.wait()
 			end 
@@ -336,9 +336,9 @@ Farm:AddToggle({
 Quest:AddToggle({
 	Name = "Auto start quests",
 	Callback = function(state)
-		getgenv().autostartquest = state
+		_G.autostartquest = state
 		spawn(function ()
-			while autostartquest == true do
+			while _G.autostartquest == true do
 				for i = 1, 500 do
 					local args = ({
 						[1] = i
@@ -355,9 +355,9 @@ Quest:AddToggle({
 Quest:AddToggle({
 	Name = "Auto Claim Quest",
 	Callback = function(state)
-		getgenv().autoclaimquest = state
+		_G.autoclaimquest = state
 		spawn(function ()
-			while autoclaimquest == true do
+			while _G.autoclaimquest == true do
 				for i = 1, 500 do
 					local args = ({
 						[1] = i
@@ -402,17 +402,17 @@ Bosses:AddToggle({
 	Name = "Bossfarm",
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
-		getgenv().bossfarm = state
+		_G.bossfarm = state
 		spawn(function()
-			while bossfarm == true do
+			while _G.bossfarm == true do
 				for i, v in pairs(workspace.Ghosts:GetChildren()) do
-					if v.Name == bossN and v:FindFirstChild("HumanoidRootPart") and bossfarm == true then
+					if v.Name == bossN and v:FindFirstChild("HumanoidRootPart") and _G.bossfarm == true then
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 10)
 						local remote = game:GetService("ReplicatedStorage").Network.ToServer.Requests.VacuumEnemy
 						remote:FireServer(v)
 
 					elseif bossN == nil then
-						OrionLib:MakeNOtification({
+						OrionLib:MakeNotification({
 							Name = "Alert",
 							Content = "You have not selected the boss yet.",
 							Image = "rbxassetid://7634887655",
@@ -430,15 +430,15 @@ Bosses:AddToggle({
 Bosses:AddToggle({
 	Name = "Auto hit boss",
 	Callback = function(state) 
-		getgenv().autohitboss = state
-		OrionLib:MakeNOtification({
+		_G.autohitboss = state
+		OrionLib:MakeNotification({
 			Name = "Alert",
 			Content = "Use this feature only with bosses with shield.",
 			Image = "rbxassetid://7634887655",
 			Time = 5
 		})
 		spawn(function ()
-			while autohitboss == true do
+			while _G.autohitboss == true do
 				local args = ({
 					[1] = workspace.Ghosts:FindFirstChild(bossN)
 				})                                    

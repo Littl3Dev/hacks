@@ -1,7 +1,7 @@
 --Public
 repeat task.wait() until game:IsLoaded()
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
 local GUI = OrionLib:MakeWindow({Name = "DevHub🔛🔝", HidePremium = true, IntroText = "DevHub", SaveConfig = false, ConfigFolder = "DevHub"})
 
 GUI:MakeNotification{
@@ -19,8 +19,10 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 GUI:MakeNotification{
-	Name = "Anti-AFK activated",
-	Callback = function() end
+	Name = "Alert",
+	Content = "Anti-AFK enabled",
+	Image = "rbxassetid://12796195033",
+	Time = 5,
 }
 
 --Ghosts
@@ -198,8 +200,7 @@ Farm:AddToggle{
 			Name = "Alert",
 			Content = "Please equip your vacuum in order to work",
 			Image = "rbxassetid://7634887655",
-			Time = 5,
-			Callback = function() end
+			Time = 5
 		}
 		spawn(function()
 			while autofarm == true do
@@ -214,8 +215,7 @@ Farm:AddToggle{
 							Name = "Alert",
 							Content = "You have not selected a ghost yet.",
 							Image = "rbxassetid://7634887655",
-							Time = 5,
-							Callback = function() end
+							Time = 5
 						}
 						wait(3)
 					end
@@ -417,7 +417,6 @@ Bosses:AddToggle{
 							Content = "You have not selected the boss yet.",
 							Image = "rbxassetid://7634887655",
 							Time = 5
-							Callback = function() end
 						}
 						wait(3)
 					end
@@ -437,7 +436,6 @@ Bosses:AddToggle{
 			Content = "Use this feature only with bosses with shield.",
 			Image = "rbxassetid://7634887655",
 			Time = 5
-			Callback = function() end
 		}
 		spawn(function ()
 			while autohitboss == true do
@@ -455,7 +453,7 @@ Bosses:AddToggle{
 
 
 --MAIN WORLD ----  CFrame.new(211, -148, -1710)  GHOST WORLD ---  CFrame.new(123, -862, 6040)   ---- VOID  CFrame.new(-2, 257, -154)
-local mainhubs = "211, -148, -1710"
-local ghostworlds = "123, -862, 6040"
-local backdoors = "99.1463547, 278.861572, -744.693115, -0.945054948, 1.84763416e-09, -0.326911479, 3.85483538e-08, 1, -1.05786064e-07, 0.326911479, -1.12575549e-07, -0.945054948"
+--local mainhubs = "211, -148, -1710"
+--local ghostworlds = "123, -862, 6040"
+--local backdoors = "99.1463547, 278.861572, -744.693115, -0.945054948, 1.84763416e-09, -0.326911479, 3.85483538e-08, 1, -1.05786064e-07, 0.326911479, -1.12575549e-07, -0.945054948"
 

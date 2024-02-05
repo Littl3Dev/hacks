@@ -4,12 +4,12 @@ repeat task.wait() until game:IsLoaded()
 local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
 local GUI = OrionLib:MakeWindow({Name = "DevHub🔛🔝", HidePremium = true, IntroText = "DevHub", SaveConfig = false, ConfigFolder = "DevHub"})
 
-GUI:MakeNotification{
+GUI:MakeNotification({
 	Name = "DevHub",
 	Content = "Thank you for choosing DevHub.",
 	Image = "rbxassetid://12796195033",
 	Time = 20
-}
+})
 
 local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -18,16 +18,16 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-GUI:MakeNotification{
+GUI:MakeNotification({
 	Name = "Alert",
 	Content = "Anti-AFK enabled",
 	Image = "rbxassetid://12796195033",
 	Time = 5,
-}
+})
 
 --Ghosts
 
-local Mainhubg = {
+local Mainhubg = ({
 	"Fairy",
 	"Owl",
 	"Businessman",
@@ -53,9 +53,9 @@ local Mainhubg = {
 	"Magma Monster",
 	"Explorer",
 	"Penguin"
-}
+})
 
-local Ghostworldg = {
+local Ghostworldg = ({
 	"Jester",
 	"Jelly",
 	"Pinwheel",
@@ -74,9 +74,9 @@ local Ghostworldg = {
 	"Blooming",
 	"Adventurer",
 	"Dragonfly"
-}
+})
 
-local backdoorg = {
+local backdoorg = ({
 	"Swamp Dweller",
 	"Firefly",
 	"Frost Spirit",
@@ -103,29 +103,29 @@ local backdoorg = {
 	"Data Fury",
 	"Programmer",
 	"RAM"
-}
+})
 
 
 
 --Bossesg
-local mainhubb = {
+local mainhubb = ({
 	"Ghastly Tree",
 	"George The Gorilla",
 	"Sludge",
 	"Subject One",
 	"King Krab",
 	"Magmoraug"
-}
+})
 
-local ghostworldb = {
+local ghostworldb = ({
 	"Grim",
 	"The Great Guardian"
-}
+})
 
-local backdoorb = {
+local backdoorb = ({
 	"Anomaly",
 	"The Final Boss"
-}
+})
 
 --Locals
 local ghostN = nil
@@ -144,64 +144,64 @@ local bloxbyte = 5061426732
 
 
 
-local Farm = GUI:MakeTab{
+local Farm = GUI:MakeTab({
 	Name = "Farm",
 	Icon = "rbxassetid://8292007940",
 	PremiumOnly = false
-}
+})
 
-local Quest = GUI:MakeTab{
+local Quest = GUI:MakeTab({
 	Name = "Quest",
 	Icon = "rbxassetid://82426641",
 	PremiumOnly = false
-}
+})
 
-local Bosses = GUI:MakeTab{
+local Bosses = GUI:MakeTab({
 	Name = "Bosses",
 	Icon = "rbxassetid://77095067",
 	PremiumOnly = false
-}
+})
 
 --farm
 if game.PlaceId == mainhub then
-	Farm:AddDropdown{
+	Farm:AddDropdown({
 		Name = "Select the ghost you want to farm",
 		Options = Mainhubg,
 		Callback = function(v)
 			ghostN = v
 		end
-	}
+	})
 
 elseif game.PlaceId == ghostworld then
-	Farm:AddDropdown{
+	Farm:AddDropdown({
 		Name = "Select the ghost you want to farm",
 		Options = Ghostworldg,
 		Callback = function(v)
 			ghostN = v
 		end
-	}
+	})
 elseif game.PlaceId == backdoor then
-	Farm:AddDropdown{
+	Farm:AddDropdown({
 		Name = "Select the ghost you want to farm",
 		Options = backdoorg,
 		Callback = function(v)
 			ghostN = v
 		end
-	}
+	})
 end
 
 
-Farm:AddToggle{
+Farm:AddToggle({
 	Name = "AutoFarm",
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
 		getgenv().autofarm = state
-		GUI:MakeNotification{
+		GUI:MakeNotification({
 			Name = "Alert",
 			Content = "Please equip your vacuum in order to work",
 			Image = "rbxassetid://7634887655",
 			Time = 5
-		}
+		})
 		spawn(function()
 			while autofarm == true do
 				for i, v in pairs(workspace.Ghosts:GetChildren()) do
@@ -211,12 +211,12 @@ Farm:AddToggle{
 						remote:FireServer(v)
 
 					elseif ghostN == nil then
-						GUI:MakeNotification{
+						GUI:MakeNotification({
 							Name = "Alert",
 							Content = "You have not selected a ghost yet.",
 							Image = "rbxassetid://7634887655",
 							Time = 5
-						}
+						})
 						wait(3)
 					end
 				end
@@ -224,11 +224,11 @@ Farm:AddToggle{
 			end
 		end)
 	end
-}
+})
 
 
 if game.PlaceId == mainhub then
-	Farm:AddToggle{
+	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
 			getgenv().autosell = state
@@ -250,9 +250,9 @@ if game.PlaceId == mainhub then
 					wait(10)
 				end
 			end)
-		end}
+		end})
 elseif game.PlaceId == ghostworld then
-	Farm:AddToggle{
+	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
 			getgenv().autosell = state
@@ -275,9 +275,9 @@ elseif game.PlaceId == ghostworld then
 					wait(10)
 				end
 			end)
-		end}
+		end})
 elseif game.PlaceId == backdoor then
-	Farm:AddToggle{
+	Farm:AddToggle({
 		Name = "Autosell",
 		Callback = function(state) 
 			getgenv().autosell = state
@@ -300,25 +300,25 @@ elseif game.PlaceId == backdoor then
 					wait(10)
 				end
 			end)
-		end}    
+		end})
 end
 
-Farm:AddToggle{
+Farm:AddToggle({
 	Name = "Auto hit",
 	Callback = function(state) 
 		getgenv().autohit = state
 		spawn(function ()
 			while autohit == true do
-				local args = {
+				local args = ({
 					[1] = workspace.Ghosts:FindFirstChild(ghostN)
-				}                                    
+				})                                    
 				game:GetService("ReplicatedStorage").Network.ToServer.Requests.VacuumFireHit:FireServer(unpack(args))
 				task.wait() 
 			end
 		end)
-	end}
+	end})
 
-Farm:AddToggle{
+Farm:AddToggle({
 	Name = "Auto Antenna upgrade",
 	Callback = function(state) 
 		getgenv().autoantenna = state
@@ -329,20 +329,20 @@ Farm:AddToggle{
 			end 
 		end)
 	end
-}
+})
 
 
 --quest
-Quest:AddToggle{
+Quest:AddToggle({
 	Name = "Auto start quests",
 	Callback = function(state)
 		getgenv().autostartquest = state
 		spawn(function ()
 			while autostartquest == true do
 				for i = 1, 500 do
-					local args = {
+					local args = ({
 						[1] = i
-					}
+					})
 
 					game:GetService("ReplicatedStorage").Network.ToServer.Requests.StartQuest:FireServer(unpack(args))
 					task.wait()
@@ -350,18 +350,18 @@ Quest:AddToggle{
 			end
 		end)
 	end
-}
+})
 
-Quest:AddToggle{
+Quest:AddToggle({
 	Name = "Auto Claim Quest",
 	Callback = function(state)
 		getgenv().autoclaimquest = state
 		spawn(function ()
 			while autoclaimquest == true do
 				for i = 1, 500 do
-					local args = {
+					local args = ({
 						[1] = i
-					}
+					})
 
 					game:GetService("ReplicatedStorage").Network.ToServer.Requests.AdvanceQuest:FireServer(unpack(args))
 					task.wait()
@@ -369,36 +369,36 @@ Quest:AddToggle{
 			end
 		end)
 	end
-}
+})
 
 --bosses
 if game.PlaceId == mainhub then
-	Bosses:AddDropdown{
+	Bosses:AddDropdown({
 		Name = "Select boss",
 		Options = mainhubb,
 		Callback = function(v)
 			bossN = v
 		end
-	}
+	})
 elseif game.PlaceId == ghostworld then
-	Bosses:AddDropdown{
+	Bosses:AddDropdown({
 		Name = "Select boss",
 		Options = ghostworldb,
 		Callback = function(v)
 			bossN = v
 		end
-	}
+	})
 elseif game.PlaceId == backdoor then
-	Bosses:AddDropdown{
+	Bosses:AddDropdown({
 		Name = "Select boss",
 		Options = backdoorb,
 		Callback = function(v)
 			bossN = v
 		end
-	}
+	})
 end
 
-Bosses:AddToggle{
+Bosses:AddToggle({
 	Name = "Bossfarm",
 	Callback = function(state)
 		local GhostsFolder = game.Workspace.Ghosts
@@ -412,12 +412,12 @@ Bosses:AddToggle{
 						remote:FireServer(v)
 
 					elseif bossN == nil then
-						GUI:MakeNotification{
+						GUI:MakeNotification({
 							Name = "Alert",
 							Content = "You have not selected the boss yet.",
 							Image = "rbxassetid://7634887655",
 							Time = 5
-						}
+						})
 						wait(3)
 					end
 				end
@@ -425,28 +425,28 @@ Bosses:AddToggle{
 			end
 		end)
 	end
-}
+})
 
-Bosses:AddToggle{
+Bosses:AddToggle({
 	Name = "Auto hit boss",
 	Callback = function(state) 
 		getgenv().autohitboss = state
-		GUI:MakeNotification{
+		GUI:MakeNotification({
 			Name = "Alert",
 			Content = "Use this feature only with bosses with shield.",
 			Image = "rbxassetid://7634887655",
 			Time = 5
-		}
+		})
 		spawn(function ()
 			while autohitboss == true do
-				local args = {
+				local args = ({
 					[1] = workspace.Ghosts:FindFirstChild(bossN)
-				}                                    
+				})                                    
 				game:GetService("ReplicatedStorage").Network.ToServer.Requests.VacuumFireHit:FireServer(unpack(args))
 				task.wait() 
 			end
 		end)
-	end}
+	end})
 
 
 

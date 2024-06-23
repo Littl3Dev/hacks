@@ -127,7 +127,7 @@ local backdoorb = ({
 })
 
 local bloxbytehqb = ({
-        "The Final Boss"
+        "Final Boss"
 })
 --Locals
 local ghostN = nil

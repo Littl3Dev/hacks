@@ -105,9 +105,15 @@ local backdoorg = ({
 	"RAM"
 })
 
+local thevoidg = ({
+        "Petal",
+        "Heated",
+        "Slime",
+        "Storm",
+        "Tech"
+})
 
-
---Bossesg
+--Bosses
 local mainhubb = ({
 	"Ghastly Tree",
 	"George The Gorilla",
@@ -129,6 +135,11 @@ local backdoorb = ({
 local bloxbytehqb = ({
         "Final Boss"
 })
+
+local thevoidb = ({
+         "Boss Bo"
+})
+
 --Locals
 local ghostN = nil
 local ghostN2 = nil
@@ -143,7 +154,7 @@ local mainhub = 2685347741
 local ghostworld = 4078003854
 local backdoor = 4383092793
 local bloxbyte = 5061426732
-
+local thevoid = 6036368776
 
 
 local Farm = GUI:MakeTab({
@@ -186,6 +197,14 @@ elseif game.PlaceId == backdoor then
 	Farm:AddDropdown({
 		Name = "Select the ghost you want to farm",
 		Options = backdoorg,
+		Callback = function(v)
+			ghostN = v
+		end
+	})
+elseif game.PlaceId == thevoid then
+	Farm:AddDropdown({
+		Name = "Select the ghost you want to farm",
+		Options = thevoidg,
 		Callback = function(v)
 			ghostN = v
 		end
@@ -303,6 +322,31 @@ elseif game.PlaceId == backdoor then
 				end
 			end)
 		end})
+elseif game.PlaceId == thevoid then
+	Farm:AddToggle({
+		Name = "Autosell",
+		Callback = function(state) 
+			_G.autosell = state
+			spawn(function()
+				while _G.autosell == true do
+					local player = game.Players.LocalPlayer
+					local bLocation
+					function teleport(loc)
+						bLocation = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						if game.Players.LocalPlayer.Character.Humanoid.Sit then
+							game.Players.LocalPlayer.Character.Humanoid.Sit = false
+						end
+						wait()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = loc
+					end
+
+					teleport(CFrame.new(-2, 257, -154)) --  MAIN WORLD ----  CFrame.new(211, -148, -1710)  GHOST WORLD ---  CFrame.new(123, -862, 6040)   ---- VOID  CFrame.new(-2, 257, -154)
+					wait(2)
+					teleport(bLocation)
+					wait(10)
+				end
+			end)
+		end})
 end
 
 Farm:AddToggle({
@@ -402,6 +446,14 @@ elseif game.PlaceId == bloxbyte then
 	Bosses:AddDropdown({
 		Name = "Select boss",
 		Options = bloxbytehqb,
+		Callback = function(v)
+			bossN = v
+		end
+	})
+elseif game.PlaceId == thevoid then
+	Bosses:AddDropdown({
+		Name = "Select boss",
+		Options = thevoidb,
 		Callback = function(v)
 			bossN = v
 		end

@@ -123,10 +123,12 @@ local ghostworldb = ({
 })
 
 local backdoorb = ({
-	"Anomaly",
-	"The Final Boss"
+	"Anomaly"
 })
 
+local bloxbytehqb = ({
+        "The Final Boss"
+})
 --Locals
 local ghostN = nil
 local ghostN2 = nil
@@ -392,6 +394,14 @@ elseif game.PlaceId == backdoor then
 	Bosses:AddDropdown({
 		Name = "Select boss",
 		Options = backdoorb,
+		Callback = function(v)
+			bossN = v
+		end
+	})
+elseif game.PlaceId == bloxbyte then
+	Bosses:AddDropdown({
+		Name = "Select boss",
+		Options = bloxbytehqb,
 		Callback = function(v)
 			bossN = v
 		end
